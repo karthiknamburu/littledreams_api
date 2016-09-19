@@ -1,0 +1,2 @@
+class TermType < ApplicationRecord
+end

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918210634) do
+ActiveRecord::Schema.define(version: 20160919001200) do
+
+  create_table "fee_details", force: :cascade do |t|
+    t.string   "receipt_no"
+    t.bigint   "paid_amount"
+    t.bigint   "total_amount"
+    t.text     "comments"
+    t.integer  "user_id"
+    t.integer  "student_id"
+    t.integer  "term_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "students", force: :cascade do |t|
     t.bigint   "admission_no"
@@ -30,6 +42,21 @@ ActiveRecord::Schema.define(version: 20160918210634) do
     t.bigint   "total_fee"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "picture"
+  end
+
+  create_table "term_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "designation"
+    t.text     "campus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
